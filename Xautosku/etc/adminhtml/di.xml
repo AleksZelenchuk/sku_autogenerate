@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="modifySku" xsi:type="array">
+                    <item name="class" xsi:type="string">Zs\Xautosku\Ui\DataProvider\Product\Form\Modifier\Modifysku</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+   <type name="Magento\Catalog\Controller\Adminhtml\Product\Save">
+      <plugin name="magento-catalog-admin-controller-plugin" type="Zs\Xautosku\Controller\Adminhtml\Product\Save" sortOrder="10" disabled="false"/>
+   </type>
+</config>

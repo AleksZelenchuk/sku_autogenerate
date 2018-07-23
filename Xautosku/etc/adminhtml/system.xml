@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="autosku" translate="label" sortOrder="100">
+            <label>Auto SKU</label>
+        </tab>
+        <section id="autosku_section" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Configuration</label>
+            <tab>autosku</tab>
+            <resource>Zs_Xautosku::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Auto SKU Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="generate_type" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Sku Generation Type</label>
+                    <source_model>Zs\Xautosku\Model\Config\Source\Skutype</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="increment" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start From</label>
+                    <comment>SKU prefix i.e 0, 1. Put only integers.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="generate_type">1</field>
+                    </depends>
+                </field>
+                <field id="sku_length" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>SKU Length</label>
+                    <comment>SKU Length  i.e 4, 5 </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="generate_type">1</field>
+                    </depends>
+                </field>
+                <field id="custom_prefix" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>SKU Prefix</label>
+                    <comment>SKU Prefix i.e rp-</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="generate_type">2</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
